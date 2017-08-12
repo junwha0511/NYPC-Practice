@@ -7,7 +7,7 @@ enum Direction {
 public class Chap_03 {
 	private Scanner s = new Scanner(System.in);
 
-	private int width, height;
+	private int width, height; 
 
 	private String[][] map = new String[30][30];
 
@@ -20,16 +20,17 @@ public class Chap_03 {
 
 	private void getMap() {
 		int x = 0, y = 0;
-		width = s.nextInt();
+		//get mapSize
+		width = s.nextInt(); 
 		height = s.nextInt();
-		s.nextLine();
+		s.nextLine(); 
 		String input;
 		for (int i = 0; i < height; i++) {
 			input = s.nextLine();
 			String[] buf = input.split(""); // split Texts to Arragement
 			for (int j = 0; j < width; j++) {
 				map[i][j] = buf[j];
-				if (map[i][j].equals("O")) {
+				if (map[i][j].equals("O")) { //set start point
 					x = j;
 					y = i;
 				}
@@ -37,10 +38,6 @@ public class Chap_03 {
 
 		}
 		findWay(d.DOWN, y, x);
-		/*
-		 * for (int i = 0; i < height; i++) { for (int j = 0; j < width; j++) {
-		 * System.out.print(map[i][j]); } System.out.println(); }
-		 */
 	}
 
 	private int findWay(Direction dir, int row, int col) {
