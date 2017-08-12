@@ -2,7 +2,6 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Chap_01 {
-	private String[] inputs = new String[20]; //to save first inputs.
 	private String[][] screen = new String[20][20]; //inputs will be converted to screen
 	private int size = 0, dCount = 0, cCount = 0; 
 	private Scanner s = new Scanner(System.in); 
@@ -17,9 +16,10 @@ public class Chap_01 {
 	private void InputAndCount() {
 		size = s.nextInt(); //get mapsize
 		s.nextLine(); //to prevent error from Enter
+		String input;
 		for (int i = 0; i < size; i++) {
-			inputs[i] = s.nextLine();
-			String[] buf = inputs[i].split(""); //split Lines to Arragement
+			input = s.nextLine();
+			String[] buf = input.split(""); //split Lines to Arragement
 			for (int j = 0; j < size; j++) {
 				screen[i][j] = buf[j];
 				switch (screen[i][j]) { //Count daramG and player
