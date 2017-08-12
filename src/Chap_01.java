@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.Random;
 
 public class Chap_01 {
 	private String[][] screen = new String[20][20]; //inputs will be converted to screen
@@ -35,7 +34,6 @@ public class Chap_01 {
 	}
 
 	private void PlaceDaramG() {
-		Random r = new Random();
 		int howPlace = cCount * 2 - dCount; //save daramG count that we need  
 		if (dCount < cCount * 2) {
 			for (int i = 0; i < size; i++) {
