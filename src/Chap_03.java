@@ -10,7 +10,13 @@ public class Chap_03 {
 	private int width, height; 
 
 	private String[][] map = new String[30][30];
+<<<<<<< HEAD
 	
+=======
+
+	private Direction d;
+
+>>>>>>> 5d7c32858e44f10735bbdb425fbd921db98978ff
 	public static void main(String[] args) {
 		Chap_03 ch = new Chap_03();
 		ch.getMap();
@@ -35,6 +41,7 @@ public class Chap_03 {
 			}
 
 		}
+<<<<<<< HEAD
 		Direction d = Direction.DOWN;
 		while(!findWay(d, y, x)) {
 			switch(d) {
@@ -119,5 +126,55 @@ public class Chap_03 {
 			return true;
 		}
 		return false;
+=======
+		findWay(d.DOWN, y, x);
+	}
+
+	private int findWay(Direction dir, int row, int col) {
+		if (dir.equals(d.DOWN)) {
+			for (row += 1; row < height; row++) {
+				if (map[row][col].equals("/")) {
+					findWay(d.LEFT, row, col);
+					return 0;
+				} else if (map[row][col].equals("\\")) {
+					findWay(d.RIGHT, row, col);
+					return 0;
+				}
+			}
+			System.out.println("D " + col);
+		} else if (dir.equals(d.UP)) {
+			for (row += 1; row > height; row--) {
+				if (map[row][col].equals("/")) {
+					findWay(d.RIGHT, row, col);
+					return 0;
+				} else if (map[row][col].equals("\\")) {
+					findWay(d.LEFT, row, col);
+					return 0;
+				}
+			}
+			System.out.println("U " + col);
+		} else if (dir.equals(d.RIGHT)) {
+			for (col += 1; col < width; col++) {
+				if (map[row][col].equals("/")) {
+					findWay(d.UP, row, col);
+					return 0;
+				} else if (map[row][col].equals("\\")) {
+					findWay(d.DOWN, row, col);
+					return 0;
+				}
+			}
+			System.out.println("R " + row);
+		} else if (dir.equals(d.LEFT)) {
+			for (col += 1; col < width; col++) {
+				if (map[row][col].equals("/")) {
+					findWay(d.DOWN, row, col);
+					return 0;
+				} else if (map[row][col].equals("\\")) {
+					findWay(d.UP, row, col);
+					return 0;
+				}
+			}
+			System.out.println("L " + row);
+>>>>>>> 5d7c32858e44f10735bbdb425fbd921db98978ff
 		}
 }
